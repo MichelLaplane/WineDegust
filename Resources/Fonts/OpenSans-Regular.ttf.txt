@@ -1,2 +1,0 @@
-# This is a placeholder for OpenSans-Regular.ttf
-# In a real application, download from: https://fonts.google.com/specimen/Open+Sans

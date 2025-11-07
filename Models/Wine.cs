@@ -20,19 +20,19 @@ public class Wine
     public DateTime TastingDate { get; set; } = DateTime.Now;
     
     // Visual aspect (1-2)
-    public int VisualScore { get; set; }
+    public int VisualScore { get; set; } = 1;
     public string VisualDescription { get; set; } = string.Empty;
     
     // Olfactive/Nose (1-6)
-    public int OlfactiveScore { get; set; }
+    public int OlfactiveScore { get; set; } = 1;
     public string OlfactiveDescription { get; set; } = string.Empty;
     
     // Gustative/Taste (1-8)
-    public int GustativeScore { get; set; }
+    public int GustativeScore { get; set; } = 1;
     public string GustativeDescription { get; set; } = string.Empty;
     
     // Global (1-4)
-    public int GlobalScore { get; set; }
+    public int GlobalScore { get; set; } = 1;
     public string GlobalDescription { get; set; } = string.Empty;
     
     /// <summary>
@@ -42,7 +42,7 @@ public class Wine
     public int TastingNote => VisualScore + OlfactiveScore + GustativeScore + GlobalScore;
     
     // Personal taste rating (1-20)
-    public int TasteRating { get; set; }
+    public int TasteRating { get; set; } = 10;
     
     public string Notes { get; set; } = string.Empty;
 }

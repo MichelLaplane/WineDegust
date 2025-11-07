@@ -128,16 +128,16 @@ public class AddEditWineViewModel : BaseViewModel
         {
             if (MediaPicker.Default.IsCaptureSupported)
             {
-                var photo = await MediaPicker.Default.CapturePhotoAsync();
+                var photo = await MediaPicker.Default.CapturePhotoAsync().ConfigureAwait(false);
                 
                 if (photo != null)
                 {
                     // Save the photo to local storage
                     var localFilePath = Path.Combine(FileSystem.CacheDirectory, photo.FileName);
                     
-                    using var stream = await photo.OpenReadAsync();
+                    using var stream = await photo.OpenReadAsync().ConfigureAwait(false);
                     using var newStream = File.OpenWrite(localFilePath);
-                    await stream.CopyToAsync(newStream);
+                    await stream.CopyToAsync(newStream).ConfigureAwait(false);
                     
                     Wine.PhotoPath = localFilePath;
                     OnPropertyChanged(nameof(Wine));
@@ -146,7 +146,7 @@ public class AddEditWineViewModel : BaseViewModel
         }
         catch (Exception ex)
         {
-            await Shell.Current.DisplayAlert("Erreur", $"Impossible de prendre la photo: {ex.Message}", "OK");
+            await Shell.Current.DisplayAlert("Erreur", $"Impossible de prendre la photo: {ex.Message}", "OK").ConfigureAwait(false);
         }
     }
 }

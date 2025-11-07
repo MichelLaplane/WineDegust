@@ -11,7 +11,7 @@
             Title="Mes Vins"
             ContentTemplate="{DataTemplate local:WineListPage}"
             Route="WineListPage"
-            Icon="wine_glass.png" />
+            Icon="dotnet_bot.png" />
     </TabBar>
 
 </Shell>

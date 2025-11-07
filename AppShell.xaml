@@ -10,8 +10,7 @@
         <ShellContent
             Title="Mes Vins"
             ContentTemplate="{DataTemplate local:WineListPage}"
-            Route="WineListPage"
-            Icon="dotnet_bot.png" />
+            Route="WineListPage" />
     </TabBar>
 
 </Shell>

@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WineDegust.Views.WineDetailPage"
+             Title="{Binding Title}">
+    
+    <ContentPage.ToolbarItems>
+        <ToolbarItem Text="Modifier" Command="{Binding EditWineCommand}" />
+        <ToolbarItem Text="Supprimer" Command="{Binding DeleteWineCommand}" />
+    </ContentPage.ToolbarItems>
+    
+    <ScrollView Padding="20">
+        <StackLayout Spacing="15">
+            <!-- Photo -->
+            <Frame HeightRequest="300" Padding="0" CornerRadius="10" IsClippedToBounds="True">
+                <Image Source="{Binding Wine.PhotoPath, TargetNullValue='dotnet_bot.png'}"
+                       Aspect="AspectFill" />
+            </Frame>
+            
+            <!-- Basic Info -->
+            <Label Text="{Binding Wine.Name}" FontSize="24" FontAttributes="Bold" />
+            <Label Text="{Binding Wine.Producer}" FontSize="18" TextColor="Gray" />
+            <Label Text="{Binding Wine.Region}" FontSize="16" TextColor="Gray" />
+            <Label FontSize="16" TextColor="Gray">
+                <Label.Text>
+                    <MultiBinding StringFormat="Année: {0}">
+                        <Binding Path="Wine.Year" />
+                    </MultiBinding>
+                </Label.Text>
+            </Label>
+            <Label FontSize="16" TextColor="Gray">
+                <Label.Text>
+                    <MultiBinding StringFormat="Date de dégustation: {0:d}">
+                        <Binding Path="Wine.TastingDate" />
+                    </MultiBinding>
+                </Label.Text>
+            </Label>
+            
+            <!-- Tasting Notes Section -->
+            <BoxView HeightRequest="1" Color="LightGray" Margin="0,10" />
+            
+            <Label Text="Notes de Dégustation" FontSize="20" FontAttributes="Bold" />
+            
+            <!-- Visual -->
+            <Frame BorderColor="LightGray" Padding="10">
+                <StackLayout Spacing="5">
+                    <Label FontSize="16" FontAttributes="Bold">
+                        <Label.Text>
+                            <MultiBinding StringFormat="Visuel: {0}/2">
+                                <Binding Path="Wine.VisualScore" />
+                            </MultiBinding>
+                        </Label.Text>
+                    </Label>
+                    <Label Text="{Binding Wine.VisualDescription}" FontSize="14" />
+                </StackLayout>
+            </Frame>
+            
+            <!-- Olfactive -->
+            <Frame BorderColor="LightGray" Padding="10">
+                <StackLayout Spacing="5">
+                    <Label FontSize="16" FontAttributes="Bold">
+                        <Label.Text>
+                            <MultiBinding StringFormat="Olfactif (Nez): {0}/6">
+                                <Binding Path="Wine.OlfactiveScore" />
+                            </MultiBinding>
+                        </Label.Text>
+                    </Label>
+                    <Label Text="{Binding Wine.OlfactiveDescription}" FontSize="14" />
+                </StackLayout>
+            </Frame>
+            
+            <!-- Gustative -->
+            <Frame BorderColor="LightGray" Padding="10">
+                <StackLayout Spacing="5">
+                    <Label FontSize="16" FontAttributes="Bold">
+                        <Label.Text>
+                            <MultiBinding StringFormat="Gustatif: {0}/8">
+                                <Binding Path="Wine.GustativeScore" />
+                            </MultiBinding>
+                        </Label.Text>
+                    </Label>
+                    <Label Text="{Binding Wine.GustativeDescription}" FontSize="14" />
+                </StackLayout>
+            </Frame>
+            
+            <!-- Global -->
+            <Frame BorderColor="LightGray" Padding="10">
+                <StackLayout Spacing="5">
+                    <Label FontSize="16" FontAttributes="Bold">
+                        <Label.Text>
+                            <MultiBinding StringFormat="Global: {0}/4">
+                                <Binding Path="Wine.GlobalScore" />
+                            </MultiBinding>
+                        </Label.Text>
+                    </Label>
+                    <Label Text="{Binding Wine.GlobalDescription}" FontSize="14" />
+                </StackLayout>
+            </Frame>
+            
+            <!-- Total Scores -->
+            <BoxView HeightRequest="1" Color="LightGray" Margin="0,10" />
+            
+            <Frame BackgroundColor="#E8F5E9" Padding="15">
+                <StackLayout Spacing="10">
+                    <Label FontSize="18" FontAttributes="Bold">
+                        <Label.Text>
+                            <MultiBinding StringFormat="Note de Dégustation: {0}/20">
+                                <Binding Path="Wine.TastingNote" />
+                            </MultiBinding>
+                        </Label.Text>
+                    </Label>
+                    <Label FontSize="16">
+                        <Label.Text>
+                            <MultiBinding StringFormat="Note de Goût: {0}/20">
+                                <Binding Path="Wine.TasteRating" />
+                            </MultiBinding>
+                        </Label.Text>
+                    </Label>
+                </StackLayout>
+            </Frame>
+            
+            <!-- Additional Notes -->
+            <BoxView HeightRequest="1" Color="LightGray" Margin="0,10" />
+            
+            <Label Text="Notes Additionnelles" FontSize="18" FontAttributes="Bold" />
+            <Label Text="{Binding Wine.Notes}" FontSize="14" />
+        </StackLayout>
+    </ScrollView>
+</ContentPage>

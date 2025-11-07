@@ -1,0 +1,2 @@
+# This is a placeholder for OpenSans-Semibold.ttf
+# In a real application, download from: https://fonts.google.com/specimen/Open+Sans

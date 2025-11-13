@@ -1,0 +1,32 @@
+
+Vérification de la version mise à jour de la charge de travail.
+[NuGet Manager] [Info]   GET https://api.nuget.org/v3/registration5-gz-semver2/microsoft.net.workloads.10.0.100-rc.2.msi.x64/index.json
+[NuGet Manager] [Info]   GET https://nuget.telerik.com/v3/registration/microsoft.net.workloads.10.0.100-rc.2.msi.x64/index.json
+[NuGet Manager] [Info]   OK https://api.nuget.org/v3/registration5-gz-semver2/microsoft.net.workloads.10.0.100-rc.2.msi.x64/index.json 229 ms
+[NuGet Manager] [Info]   Unauthorized https://nuget.telerik.com/v3/registration/microsoft.net.workloads.10.0.100-rc.2.msi.x64/index.json 443 ms
+Échec de la mise à jour du manifeste de publicité microsoft.net.workloads : Response status code does not indicate success: 401 (Unauthorized)..
+Installation de la charge de travail 10.0.100-rc.2.25513.4.
+Installation en cours de microsoft.net.workloads.10.0.100-rc.2.msi.x64 .... Done
+Downloading Microsoft.Maui.Core.Msi.x64 (10.0.0-rc.2.25504.7)
+[NuGet Manager] [Info]   GET https://api.nuget.org/v3/registration5-gz-semver2/microsoft.maui.core.msi.x64/index.json
+[NuGet Manager] [Info]   GET https://nuget.telerik.com/v3/registration/microsoft.maui.core.msi.x64/index.json
+[NuGet Manager] [Info]   Unauthorized https://nuget.telerik.com/v3/registration/microsoft.maui.core.msi.x64/index.json 203 ms
+Échec de l’installation de la charge de travail, restauration des packs installés...
+Suppression de microsoft.net.workload.mono.toolchain.net9.manifest-10.0.100-rc.2.msi.x64 ....[NuGet Manager] [Info]   OK https://api.nuget.org/v3/registration5-gz-semver2/microsoft.maui.core.msi.x64/index.json 312 ms
+ Done
+Suppression de microsoft.net.workload.mono.toolchain.net8.manifest-10.0.100-rc.2.msi.x64 .... Done
+Suppression de microsoft.net.workload.mono.toolchain.net7.manifest-10.0.100-rc.2.msi.x64 .... Done
+Suppression de microsoft.net.workload.mono.toolchain.net6.manifest-10.0.100-rc.2.msi.x64 .... Done
+Suppression de microsoft.net.workload.mono.toolchain.current.manifest-10.0.100-rc.2.msi.x64 .... Done
+Suppression de microsoft.net.sdk.tvos.manifest-10.0.100-rc.2.msi.x64 .... Done
+Suppression de microsoft.net.sdk.maui.manifest-10.0.100-rc.2.msi.x64 .... Done
+Suppression de microsoft.net.sdk.macos.manifest-10.0.100-rc.2.msi.x64 .... Done
+Suppression de microsoft.net.sdk.maccatalyst.manifest-10.0.100-rc.2.msi.x64 .... Done
+Suppression de microsoft.net.sdk.ios.manifest-10.0.100-rc.2.msi.x64 .... Done
+Suppression de microsoft.net.sdk.android.manifest-10.0.100-rc.2.msi.x64 .... Done
+Suppression de microsoft.net.workload.emscripten.net9.manifest-10.0.100-rc.2.msi.x64 .... Done
+Suppression de microsoft.net.workload.emscripten.net8.manifest-10.0.100-rc.2.msi.x64 .... Done
+Suppression de microsoft.net.workload.emscripten.net7.manifest-10.0.100-rc.2.msi.x64 .... Done
+Suppression de microsoft.net.workload.emscripten.net6.manifest-10.0.100-rc.2.msi.x64 .... Done
+Suppression de microsoft.net.workload.emscripten.current.manifest-10.0.100-rc.2.msi.x64 .... Done
+Suppression de microsoft.net.workloads.10.0.100-rc.2.msi.x64 .... Done

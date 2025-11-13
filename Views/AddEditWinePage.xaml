@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="WineDegust.Views.AddEditWinePage"
+             Title="{Binding Title}">
+    
+    <ScrollView Padding="20">
+        <StackLayout Spacing="15">
+            <!-- Photo Section -->
+            <Frame HeightRequest="200" Padding="0" CornerRadius="10" IsClippedToBounds="True">
+                <Frame.GestureRecognizers>
+                    <TapGestureRecognizer Command="{Binding TakePhotoCommand}" />
+                </Frame.GestureRecognizers>
+                <Grid>
+                    <Image Source="{Binding Wine.PhotoPath, TargetNullValue='dotnet_bot.png'}"
+                           Aspect="AspectFill" />
+                    <Label Text="📷 Appuyez pour prendre une photo"
+                           HorizontalOptions="Center"
+                           VerticalOptions="Center"
+                           BackgroundColor="#80000000"
+                           TextColor="White"
+                           Padding="10" />
+                </Grid>
+            </Frame>
+            
+            <!-- Basic Information -->
+            <Label Text="Informations de Base" FontSize="18" FontAttributes="Bold" />
+            
+            <Entry Placeholder="Nom du vin *"
+                   Text="{Binding Wine.Name}" />
+            
+            <Entry Placeholder="Producteur"
+                   Text="{Binding Wine.Producer}" />
+            
+            <Entry Placeholder="Région"
+                   Text="{Binding Wine.Region}" />
+            
+            <Entry Placeholder="Année"
+                   Keyboard="Numeric"
+                   Text="{Binding Wine.Year}" />
+            
+            <!-- Tasting Notes Section -->
+            <BoxView HeightRequest="1" Color="LightGray" Margin="0,10" />
+            <Label Text="Notes de Dégustation" FontSize="18" FontAttributes="Bold" />
+            
+            <!-- Visual Score (1-2) -->
+            <Label Text="Visuel (1-2)" FontSize="16" FontAttributes="Bold" />
+            <Grid ColumnDefinitions="*,100">
+                <Slider Grid.Column="0" 
+                        Minimum="1" 
+                        Maximum="2" 
+                        Value="{Binding Wine.VisualScore}"
+                        MinimumTrackColor="#8BC34A"
+                        MaximumTrackColor="LightGray" />
+                <Label Grid.Column="1" 
+                       Text="{Binding Wine.VisualScore, StringFormat='{0:F0}'}"
+                       FontSize="16"
+                       HorizontalOptions="End"
+                       VerticalOptions="Center" />
+            </Grid>
+            <Editor Placeholder="Description visuelle (aspect, couleur, limpidité...)"
+                    Text="{Binding Wine.VisualDescription}"
+                    HeightRequest="80" />
+            
+            <!-- Olfactive Score (1-6) -->
+            <Label Text="Olfactif / Nez (1-6)" FontSize="16" FontAttributes="Bold" />
+            <Grid ColumnDefinitions="*,100">
+                <Slider Grid.Column="0" 
+                        Minimum="1" 
+                        Maximum="6" 
+                        Value="{Binding Wine.OlfactiveScore}"
+                        MinimumTrackColor="#8BC34A"
+                        MaximumTrackColor="LightGray" />
+                <Label Grid.Column="1" 
+                       Text="{Binding Wine.OlfactiveScore, StringFormat='{0:F0}'}"
+                       FontSize="16"
+                       HorizontalOptions="End"
+                       VerticalOptions="Center" />
+            </Grid>
+            <Editor Placeholder="Description olfactive (arômes, intensité, complexité...)"
+                    Text="{Binding Wine.OlfactiveDescription}"
+                    HeightRequest="80" />
+            
+            <!-- Gustative Score (1-8) -->
+            <Label Text="Gustatif (1-8)" FontSize="16" FontAttributes="Bold" />
+            <Grid ColumnDefinitions="*,100">
+                <Slider Grid.Column="0" 
+                        Minimum="1" 
+                        Maximum="8" 
+                        Value="{Binding Wine.GustativeScore}"
+                        MinimumTrackColor="#8BC34A"
+                        MaximumTrackColor="LightGray" />
+                <Label Grid.Column="1" 
+                       Text="{Binding Wine.GustativeScore, StringFormat='{0:F0}'}"
+                       FontSize="16"
+                       HorizontalOptions="End"
+                       VerticalOptions="Center" />
+            </Grid>
+            <Editor Placeholder="Description gustative (saveurs, équilibre, longueur...)"
+                    Text="{Binding Wine.GustativeDescription}"
+                    HeightRequest="80" />
+            
+            <!-- Global Score (1-4) -->
+            <Label Text="Global (1-4)" FontSize="16" FontAttributes="Bold" />
+            <Grid ColumnDefinitions="*,100">
+                <Slider Grid.Column="0" 
+                        Minimum="1" 
+                        Maximum="4" 
+                        Value="{Binding Wine.GlobalScore}"
+                        MinimumTrackColor="#8BC34A"
+                        MaximumTrackColor="LightGray" />
+                <Label Grid.Column="1" 
+                       Text="{Binding Wine.GlobalScore, StringFormat='{0:F0}'}"
+                       FontSize="16"
+                       HorizontalOptions="End"
+                       VerticalOptions="Center" />
+            </Grid>
+            <Editor Placeholder="Impression globale"
+                    Text="{Binding Wine.GlobalDescription}"
+                    HeightRequest="80" />
+            
+            <!-- Calculated Tasting Note -->
+            <Frame BackgroundColor="#E8F5E9" Padding="15">
+                <Label FontSize="16" FontAttributes="Bold">
+                    <Label.Text>
+                        <MultiBinding StringFormat="Note de Dégustation Calculée: {0}/20">
+                            <Binding Path="Wine.TastingNote" />
+                        </MultiBinding>
+                    </Label.Text>
+                </Label>
+            </Frame>
+            
+            <!-- Taste Rating (1-20) -->
+            <Label Text="Note de Goût Personnel (1-20)" FontSize="16" FontAttributes="Bold" />
+            <Grid ColumnDefinitions="*,100">
+                <Slider Grid.Column="0" 
+                        Minimum="1" 
+                        Maximum="20" 
+                        Value="{Binding Wine.TasteRating}"
+                        MinimumTrackColor="#2196F3"
+                        MaximumTrackColor="LightGray" />
+                <Label Grid.Column="1" 
+                       Text="{Binding Wine.TasteRating, StringFormat='{0:F0}'}"
+                       FontSize="16"
+                       HorizontalOptions="End"
+                       VerticalOptions="Center" />
+            </Grid>
+            
+            <!-- Additional Notes -->
+            <BoxView HeightRequest="1" Color="LightGray" Margin="0,10" />
+            <Label Text="Notes Additionnelles" FontSize="16" FontAttributes="Bold" />
+            <Editor Placeholder="Notes supplémentaires, accords mets-vins..."
+                    Text="{Binding Wine.Notes}"
+                    HeightRequest="100" />
+            
+            <!-- Buttons -->
+            <Grid ColumnDefinitions="*,*" ColumnSpacing="10" Margin="0,20,0,0">
+                <Button Grid.Column="0" 
+                        Text="Annuler" 
+                        Command="{Binding CancelCommand}"
+                        BackgroundColor="Gray" />
+                <Button Grid.Column="1" 
+                        Text="Enregistrer" 
+                        Command="{Binding SaveCommand}"
+                        BackgroundColor="#4CAF50" />
+            </Grid>
+        </StackLayout>
+    </ScrollView>
+</ContentPage>
